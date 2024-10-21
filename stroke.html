@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Stroke Mortality Rates</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Maggie Waller Portfolio</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="projectdirect.html">All Projects</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<section id="banner">
+							<div class="inner">
+								<h2>Stroke Mortality Rates in the U.S.</h2>
+								<ul class="actions special">
+								</ul>
+							</div>
+							<a href="#one" class="more scrolly">View Process</a>
+						</section>
+						<section class="wrapper style5">
+							<div class="inner">
+								<section>
+									<h2>Dashboard</h2>
+										<div class="col-6"><span class="image fit"><img src="images/Stroke Mortality Rates National.png" alt="" /></span></div>
+										<p></p>
+										<div class="col-6"><span class="image fit"><img src="images/Stroke Mortality Rates State.png" alt="" /></span></div>
+										<p></p>
+									<iframe title="Stroke Mortality Rates Final" width="1140" height="541.25" src="https://app.fabric.microsoft.com/reportEmbed?reportId=b1f4b906-d1ca-4cc8-a53b-1e43668fe522&autoAuth=true&ctid=7af93316-ba13-4d54-aa63-d6b5bac820d1" frameborder="0" allowFullScreen="true"></iframe>
+									<hr />
+									<h2>Tools Used</h2>
+									<ul>
+										<li>I primarily utilized <b>PySpark</b> to clean and explore this data set</li>
+										<li>I visualized the data in <b>PowerBI</b></li>
+									</ul>
+									<hr />
+									<header>
+								<h2>Insights</h2>
+									</header>
+									<h4>Top 5 States by Mortality Rate</h4>
+									<p>When looking at the states with the highest overall mortality rates by race and gender, 4 of the top 5 states are within the southern United States. 
+										Mississippi has the highest mortality rate at 106 deaths by stroke per 100,000 of the population.</p>
+									<div class="col-6"><span class="image"><img src="images/Stroke Top 5 Mortality.png" alt="" /></span></div>
+									<p></p>
+									<h4>Mortality Rates by Race/Ethnicity</h4>
+									<p>Those who identified as Back were the racial/ethnic group with the highest overall mortality rate, followed by Native Hawaiians and Other Pacific Islanders, 
+										and White individuals. Those belonging to the Hispanic, American Indian or Alaskan Native, and Asian racial groups demonstrated overall rates between 61.10 
+										- 67.40. Individuals who identified as more than one race demonstrated the lowest overall stroke rate at 37.00.</p>
+									<div class="col-6"><span class="image"><img src="images/Stroke Mortality by Race.png" alt="" /></span></div>
+									<p></p>
+									<h4>Mortality Rates by Race/Ethnicity and Gender</h4>
+									<p>When looking at mortality rates by race and gender, it is apparent that Black men are by far the most at risk to die due to a stroke. In the majority of 
+										racial/ethnic groups, demonstrate an equivalent or higher stroke mortality rate, with the exception of those identifying as more than one race. In this 
+										category, women had a slightly higher recorded mortality rate. </p>
+									<div class="col-6"><span class="image"><img src="images/Stroke Mortality by Race and Gender.png" alt="" /></span></div>
+									<hr />
+									</section>
+								<section id="one">
+									<div class="inner">
+									<h2>Overview</h2>
+									<p>In this project, I analyzed the <a href="https://data.cdc.gov/Heart-Disease-Stroke-Prevention/Stroke-Mortality-Data-Among-US-Adults-35-by-State-/vutr-sfkh/about_data">stroke mortality rates</a> 
+										in U.S.adults ages 35 and over between 2019 and 2021. The mortality rates were presented as a 3-year average 
+										of mortality rates recorded during that period of time. Mortality rates were provided at the national, state, 
+										and county level and categorized by gender and race.</p>
+									<hr />
+									<header>
+										<h2>Data Cleaning and Exploration</h2>
+									</header>
+									<h4>Unique Values</h4>
+									</header>
+										<p>	When looking at unique values, it was shown that there are several categories that only contain one unique value. The unique value in "StratificationCategory1", for example, was "Gender", 
+											which was meant to indicate what the category label for "Stratification1" was. These were considered not beneficial for analysis and later removed. For "Year" column, only listed 2020 
+											for all rows. As stated previously, the mortality rates were presented as a 3-year average, so the year column was also unnecessary for analysis.</p>
+										<pre><code>print(df.nunique())
+</code></pre>
+<div class="col-6"><span class="image"><img src="images/Stroke Nunique Data.png" alt="" /></span></div>		
+<p></p>						
+									<header>									
+									<h4>First Cleaning</h4>
+									</header>
+										<p>Values that were unnecessary for analysis were removed from the data set. 
+											The "Stratification" columns were also renamed to their respective category names.</p>
+										<pre><code>#clean data
+def clean_data(df):
+	# Drop duplicate rows across all columns
+	df = df.drop_duplicates()
+	# Drop columns
+	df = df.drop(columns=['DataSource', 'StratificationCategory1', 'StratificationCategory2', 'TopicID', 'Class', 'Topic'])
+	# Rename column 'Stratification1' to 'Gender'
+	df = df.rename(columns={'Stratification1': 'Gender'})
+	# Rename column 'Stratification2' to 'Race/Ethnicity'
+	df = df.rename(columns={'Stratification2': 'Race/Ethnicity'})
+	return df
+
+df_clean = clean_data(df.copy())
+df_clean.head()
+</code></pre>
+									<h4>Data Frame Description</h4>
+									</header>
+										<p>Using the Pandas and Matploylib.pyplot libraries, the data was analyzed for completeness, 
+											column contents, and accuracy. The majority of rows were found to be complete. Rows that 
+											did not contain mortality rate data were designated in the original dataset as having 
+											“Insufficient Data.” This may have been due to there not being enough of a specific population 
+											in a given area to determine their stroke mortality rate and/or data collection issues. Rows 
+											with insufficient data were removed from the final product.</p>
+										<pre><code>print(df_clean.describe())
+</code></pre>
+<div class="col-6"><span class="image"><img src="images/Stroke Describe Data.png" alt="" /></span></div>
+<p></p>
+<pre><code>df_clean.info()
+</code></pre>
+<div class="col-6"><span class="image"><img src="images/Stroke Info Data.png" alt="" /></span></div>
+										<p></p>	
+										<h4>Second Cleaning</h4>
+									</header>
+											<p>Further analysis of the data revealed that the data set required more cleaning. Additionally, in order 
+												to get the filters to work properly on the final visualization, numbers needed to be assigned to the 
+												"GeoLevel" column.</p>
+												 <pre><code>#remove more columns, add GeoLevel column
+def clean_data(df_clean):
+	# Clone column 'GeographicLevel' as 'GeoLevelCode'
+	df_clean['GeoLevelCode'] = df_clean.loc[:, 'GeographicLevel']
+	# Replace all instances of "Nation" with "1" in column: 'GeoLevelCode'
+	df_clean.loc[df_clean['GeoLevelCode'].str.lower() == "Nation".lower(), 'GeoLevelCode'] = "1"
+	# Replace all instances of "State" with "2" in column: 'GeoLevelCode'
+	df_clean.loc[df_clean['GeoLevelCode'].str.lower() == "State".lower(), 'GeoLevelCode'] = "2"
+	# Replace all instances of "County" with "3" in column: 'GeoLevelCode'
+	df_clean.loc[df_clean['GeoLevelCode'].str.lower() == "County".lower(), 'GeoLevelCode'] = "3"
+	# Drop columns: 'Year', 'Data_Value_Unit' and 4 other columns
+	df_clean = df_clean.drop(columns=['Year', 'Data_Value_Unit', 'Data_Value_Type', 'Data_Value_Footnote_Symbol', 'Data_Value_Footnote', 'LocationID'])
+	#Change column data type to int
+	df_clean = df_clean.astype({'GeoLevelCode': 'int'})
+	return df_clean
+												
+df_cleaner = clean_data(df_clean.copy())
+df_cleaner.head()
+</code></pre>
+									<h4>Outliers</h4>
+									</header>
+										<p>While some extreme outliers were found, further research revealed that these much higher values were only 
+											present at the county level in specific populations. The numbers were drastically higher due to the 
+											population levels being so small but still being averaged at the “per 100,000 population” level. 
+											The mortality rates were determined to be an accurate representation and remained in the final data set.</p>
+										<pre><code>df_cleaner.boxplot("Data_Value")
+</code></pre>
+<div class="col-6"><span class="image"><img src="images/Stroke Box Plot.png" alt="" /></span></div>
+<hr />
+								<h2>Dashboard Building</h2>
+									<p>The data was already given as rates, with no total number of strokes or population data provided. As such, it was 
+										necessary to make sure that when presenting the information in visualizations, the rates were not further aggregated. 
+										To do so, I mainly relied on the use of multiple filters and disabling interactions between certain visuals and slicers. <br>
+									</p>
+									<p>
+										On the National/State level dashboard, to have the Location Name, Male, Female, and Highest State Mortality Cards, multiple filters had to 
+										be used as well as filtering by the bottom 1 of the GeoLevel Code. This allowed for  the correct rate to be displayed whether 
+										the U.S. or a specific state is selected. Since "1" is the national GeoLevel Code, the information for U.S. is automatically 
+										displayed. When a state is selected on a slicer, the GeoLevel Code is automatically set to "2" and the rate for that specific 
+										state is displayed.</p>
+										<div class="col-4"><span class="image fit"><img src="images/Stroke Card Example.png" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/Stroke Card California.png" alt="" /></span></div>
+									<p>A unique challenge presented by the State/County Level dashboard was preventing the aggregation of rates before the user had the opportunity 
+										to select a state they wanted to view. Because <b>PowerBI</b> does not currently have a native slicer that forces a selection, I used a Chiclet Slicer. 
+										However, Chiclet Slicers are only available in tile format, which was not an ideal way to select 1 of 50 different states. In order to force the 
+										selection, I hid the Chiclet slicer behind one of the other dashboard elements and only allowed interactions between it and the dropdown State slicer. 
+										This allows for forced selection while still utilizing the native dropdown slicer as seen below.</p>
+										<div class="col-4"><span class="image fit"><img src="images/Stroke No Selection.png" alt="" /></span></div>
+									</div>
+									</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/margarett-w/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/marwaller/Maggie-Waller-Portfolio" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>Contact me at </li><li>maggiekwaller@gmail.com</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

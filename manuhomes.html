@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Manufactured Homes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Maggie Waller Portfolio</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="projectdirect.html">All Projects</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<section id="banner">
+							<div class="inner">
+								<h2>Manufactured Homes Survey</h2>
+								<ul class="actions special">
+								</ul>
+							</div>
+							<a href="#one" class="more scrolly">View Process</a>
+						</section>
+						<section class="wrapper style5">
+							<div class="inner">
+								<section>
+									<h2>Dashboard</h2>
+									<div class='tableauPlaceholder' id='viz1729290041016' style='position: relative'><noscript><a href='#'><img alt='Overview ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;ManufacturedHomesSurveyDashboard&#47;Overview&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ManufacturedHomesSurveyDashboard&#47;Overview' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;ManufacturedHomesSurveyDashboard&#47;Overview&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1729290041016');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='2227px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+									<hr />
+									<h2>Tools Used</h2>
+									<ul>
+										<li>I primarily utilized <b>Python</b> to clean and explore this data set</li>
+										<li>I used <b>Excel</b> to impute estimated home costs</li>
+										<li>I visualized the data in <b>Tableau</b></li>
+									</ul>
+									<hr />
+									<header>
+										<h2>Insights</h2>
+									</header>
+									<h4>Manufactured Home Cost Over Time</h4>
+									<p>When looking at the average price of manufactured homes over time, it is clear there is a steady increase over 
+										time. There is a sharp increase in cost between 2020 and 2022, with a slight decline in 2023. The increase in 
+										price aligns with the supply chain issues experienced during the pandemic.</p>
+									<div class="col-6"><span class="image fit"><img src="images/ManuHomes Price per Year.png" alt="" /></span></div>
+									<p></p>
+									<h4>Regional Purchasing Habits</h4>
+									<p>Between the 4 U.S. regions, individuals from the Western region demonstrated interest in purchasing homes that 
+										cost more on average than the other 4 regions. The Midwest, conversely, purchased the least expensive homes on 
+										average compared to the other regions.</p>
+									<div class="col-6"><span class="image fit"><img src="images/ManuHomes Regional Data.png" alt="" /></span></div>
+									<p></p>
+									<h4>Price Distribution</h4>
+									<p>Of all the homes surveyed, it appears that manufactured home buyers most frequently purchase homes priced between $40,000-90,000. There appears to be comparitively minimal interest in homes under $30,000 or above  $170,000.</p>
+									<div class="col-6"><span class="image fit"><img src="images/ManuHomes Price Distribution.png" alt="" /></span></div>
+									<hr />
+								</section>
+								<section id="one">
+									<h2>Overview</h2>
+									<p>In this project, I explored data pertaining to manufactured homes purchased in the U.S. between 2014-2023. 
+										The data was sourced from the <a href="https://www.census.gov/data/datasets/2021/econ/MHS/puf.html">U.S. Census Bureau website</a>. The goal of this project was to analyze the impact factors such as SQFT, price, 
+										number of bedrooms, and number of sections had on homes purchased in each region in the U.S. over time. Below is as description from the provided documentation of how the sample data was collected. Approximately 4,860 homes were sampled every year.</p>
+										<h5>Manufactured Housing Survey Public Use File: Technical Documentation</h5>
+										<blockquote>The list of eligible sections is stratified by dealer region and then a systematic sample of fixed size is taken within each region. A total of 405 home sections are selected monthly and matched to a dealer.
+											Occasionally two sections from the same home are selected and may cause the sample size to be less than 405 when the duplicate is removed.</blockquote>
+									<hr />
+									<header>
+										<h2>Preperation</h2>
+										<h4>Standardize Table Headings</h4>
+									</header>
+										<p>There was a separate <b>Excel</b> file for each year. The majority of files had the column headers in a different 
+											order and, beginning in 2021, additional columns were added. To prepare the files to be merged into a single 
+											file, the columns were given consistent naming and additional columns, that were not deemed necessary for analysis, 
+											were removed. </p>
+										<h4>Compile all Excel files into one</h4>
+									<pre><code>#merge all excel files into one file
+
+#make list of all files
+path = r"C:\Users\14237\Desktop\Personal Data Projects\Manufactured Housing Project\2014-2023 Files - Python Import"
+file_list = glob.glob(path + "/*.xlsx")
+ 
+#combine multiple files into one
+excl_list = [] 
+for file in file_list:
+    excl_list.append(pd.read_excel(file))
+excl_merged = pd.concat(excl_list, ignore_index=True)
+ 
+#save as single file
+excl_merged.to_excel('2014-2023 MHS Data.xlsx', index=False)
+</code></pre>
+									<hr />
+									<header>
+										<h2>Data Cleaning</h2>
+										<h4>Remove Unnecessary Values</h4>
+									</header>
+										<p>Values that were deemed unnecessary for analysis, such as the weight or the type of foundation used, were removed. 
+											Columns beginning with "J," which indicated whether the information provided was imputed of reported,  were also 
+											excluded from the final data set. </p>
+										<pre><code>df = df.drop(columns = ["WEIGHT", "WGTADJ","FOUNDATION", "SECURED", "JSTATUS", "JPRICE", "JSQFT", "JBEDROOM", 
+"JTITLED", "JLOCATION", "JFOUNDATION", "JSECURED"])
+df
+</code></pre>
+											<h4>Input Values from Key</h4>
+									</header>
+											<p>The values within each column were originally represented as a number value. The key provided within the
+												 documentation was used to input more detailed information.</p>
+										<h4>Create Columns for Month and Year</h4>
+									</header>
+											<p>In the original data set, the SHIPMONTH column contained a 6-digit number that represented the year and month. 
+												The column was separated into individual year and month columns to allow for time series analysis.</p>
+											<pre><code>#change type to str
+df1 = df1.astype({"SHIPMONTH": str})
+
+#create columns for Year and Month
+df1["Year"] = df1["SHIPMONTH"].str.slice(stop = 4)
+df1["Month"] = df1["SHIPMONTH"].str.slice(start = 4)
+df1
+												</code></pre>
+										<h4>Calculate Percentage of Blanks per Year</h4>
+									</header>
+									<section>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th></th>
+														<th>2014</th>
+														<th>2015</th>
+														<th>2016</th>
+														<th>2017</th>
+														<th>2018</th>
+														<th>2019</th>
+														<th>2020</th>
+														<th>2021</th>
+														<th>2022</th>
+														<th>2023</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>Blanks</th>
+														<td>244</td>
+														<td>261</td>
+														<td>3159</td>
+														<td>4737</td>
+														<td>1397</td>
+														<td>132</td>
+														<td>89</td>
+														<td>182</td>
+														<td>2280</td>
+														<td>1233</td>
+													</tr>
+													<tr>
+														<th>Total</th>
+														<td>4957</td>
+														<td>5018</td>
+														<td>7915</td>
+														<td>9520</td>
+														<td>6188</td>
+														<td>4916</td>
+														<td>4860</td>
+														<td>4928</td>
+														<td>7023</td>
+														<td>6017</td>
+													</tr>
+													<tr>
+														<th>% Blanks</th>
+														<th>5%</th>
+														<th>5%</th>
+														<th>40%</th>
+														<th>50%</th>
+														<th>23%</th>
+														<th>3%</th>
+														<th>2%</th>
+														<th>4%</th>
+														<th>32%</th>
+														<th>20%</th>
+													</tr>
+												</tbody>
+											</table>
+											<p><i><sub>*The absence of data was represented as “9” in this data set. Rows that contained 9’s across the Price, SQFT, Bedrooms, Titled, Location, and Final Destination columns were considered blank rows.</sub></i></p>
+										</div>
+									</section>
+									<h4>Impute Missing Prices</h4>
+									<p>After cleaning the data, there were still some remaining homes that did not have a price listed. I saved the cleaned data as a CSV and utilized <b>Excel</b> to impute the values. I first created nested if statements to make Price Range 
+										and SQFT Range columns. Then, to get a more accurate representation of the estimated price, I created a pivot table that displayed the average price by region and SQFT range. From there, I filtered by year and input the average 
+										price in the pivot table in the appropriate rows.</p>
+										<pre><code>#SQFT Range
+=IF([@SQFT]<500, "<500", IF([@SQFT]<1000, "500-999", IF([@SQFT]<1500, "1000-1499", IF([@SQFT]<2000, "1500-1999", 
+IF([@SQFT]<2500, "2000-2499", IF([@SQFT]<3000, "2500-2999", IF([@SQFT]<=3500, "3000-3500", IF([@SQFT]>3500, 
+">3500","Invalid"))))))))
+#Price Range
+=IF([@PRICE]<50000, "<50000", IF([@PRICE]<100000, "50,000-99,999", IF([@PRICE]<150000, "100,000-149,999", 
+IF([@PRICE]<200000, "150,000-199,999", IF([@PRICE]<250000, "200,000-249,999", IF([@PRICE]<300000, "250,000-299,999", 
+IF([@PRICE]<=350000, "300,000-350,000", IF([@PRICE]>350000, ">350,000", "Invalid"))))))))
+										</code></pre>
+									<div class="col-6"><span class="image"><img src="images/ManuHomes Imputed Values.png" alt="" /></span></div>
+									</section>
+									</div>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/margarett-w/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/marwaller/Maggie-Waller-Portfolio" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>Contact me at </li><li>maggiekwaller@gmail.com</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Olist</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Maggie Waller Portfolio</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="projectdirect.html">All Projects</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<section id="banner">
+							<div class="inner">
+								<h2>Olist Sales</h2>
+								<ul class="actions special">
+								</ul>
+							</div>
+							<a href="#one" class="more scrolly">View Process</a>
+						</section>
+						<section class="wrapper style5">
+							<div class="inner">
+								<section>
+									<h2>Dashboard</h2>
+									<div class='tableauPlaceholder' id='viz1729108526961' style='position: relative'><noscript><a href='#'><img alt='State Level Info ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ol&#47;olist_tableau_version&#47;StateLevelInfo&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='olist_tableau_version&#47;StateLevelInfo' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ol&#47;olist_tableau_version&#47;StateLevelInfo&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1729108526961');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1227px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+									<hr />
+									<h2>Tools Used</h2>
+									<ul>
+										<li>I primarily utilized <b>MySQL</b> to clean and explore this data set</li>
+										<li>I used <b>Excel</b> to fill in some values, such as the State names, when doing so in SQL would have been less efficient</li>
+										<li>I visualized the data in <b>Tableau</b></li>
+									</ul>
+									<hr />
+									<header>
+										<h2>Insights</h2>
+									</header>
+									<h4>Sales Over Time</h4>
+									<p>When looking at monthly sales in 2017, there are comparatively minimal sales in the beginning of the year 
+										with a steady increase as the year progresses. There is a sharp increase in sales in October and November, 
+										with a small decrease in December. This increase in sales during this period aligns with the holiday season.</p>
+									<div class="col-6"><span class="image fit"><img src="images/Olist Sales Over Time.png" alt="" /></span></div>
+									<p></p>
+									<h4>Best Selling Categories</h4>
+									<p>Across all reported Olist sales in 2017, Home Good products were the top selling item at R$1,489,194. 
+										Electronics and Health & Beauty products followed closely behind at R$1,220,554 and R$1,219,905 respectively.</p>
+									<div class="col-6"><span class="image"><img src="images/Olist Top Categories.png" alt="" /></span></div>
+									<p></p>
+									<h4>Top States by Sales</h4>
+									<p>	Of all the sales reported in this data set, the vast majority of sales were made in São Paulo at R$6,545,602. 
+										The second top selling state, Paraná, had a total of R$978,319. São Paulo also contained the largest number 
+										of total orders, sellers, and number of different products sold.</p>
+									<div class="col-6"><span class="image fit"><img src="images/Olist Sao Paulo Stats.png" alt="" /></span></div>
+									<div class="col-6"><span class="image fit"><img src="images/Olist Top 5 Sales by State.png" alt="" /></span></div>
+									<hr />
+								</section>
+								<section  id="one">
+									<h2>Overview</h2>
+									<p>Per the description provided with the 
+										<a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data?select=olist_geolocation_dataset.csv ">Kaggle data set</a> 
+										Olist is “the largest department store in Brazilian marketplaces. 
+										Olist connects small businesses from all over Brazil to channels without hassle and with a single contract.” 
+										In this project, I analyzed the impact various factors such as time of year, region, and category had on sales.</p>
+										<h4>Data Model</h4>
+									</header>
+										<p>The data model below was provided to illustrate how all the provided data sets related to each other.</p>
+										<div class="col-12"><span class="image fit"><img src="images\Olist Data Model.png" alt="" /></span></div>
+									<hr />
+									<header>
+										<h2>Data Cleaning</h2>
+										<h4>Remove Unnecessary Characters</h4>
+									</header>
+										<p>The customer, geolocation, order items, order payments, orders, products, product translation, and sellers tables all contained quotation 
+											marks and underscore symbols in multiple different columns. To remove them, I used the replace function with empty quotation marks as shown below.</p>
+										<pre><code>#########clean data for customer table#########
+SELECT * FROM olist_data.customer;
+											
+#get rid of quotation marks around customer id columns and zip code
+UPDATE olist_data.customer
+SET customer_id = REPLACE(customer_id, '"', '') 
+WHERE customer_id LIKE '"%"';
+								
+UPDATE olist_data.customer
+SET customer_unique_id = REPLACE(customer_unique_id, '"', '') 
+WHERE customer_unique_id LIKE '"%"';
+											
+UPDATE olist_data.customer
+SET customer_zip_code = REPLACE(customer_zip_code, '"', '') 
+WHERE customer_zip_code LIKE '"%"';
+</code></pre>
+										<h4>Multiple Order IDs</h4>
+									</header>
+											<p>When looking at the data, I found that the unique identifier, order ID, was duplicated throughout the Order Items table. These rows with duplicate 
+												order IDs contained unique information in all the other columns. I then confirmed the Orders table and Order Payment table did not have duplicate 
+												order IDs. After looking through randomly selected order IDs that were duplicated in the Order Items table, I found that these multiple order IDs 
+												indicated a single order made by a customer containing multiple different items.</p>
+											<pre><code>select order_id, count(*)
+from olist_data.order_items
+group by order_id
+having count(*) > 1;
+#3236 rows returned
+												
+select order_id, count(*)
+from olist_data.orders
+group by order_id
+having count(*) > 1;
+#No rows returned
+												
+select order_id, count(*)
+from olist_data.order_payments
+group by order_id
+having count(*) > 1;
+#No rows returned
+</code></pre>
+									<h4>Checking Payment Value</h4>
+									</header>
+											<p>To make sure that the freight value and price matched the reported payment value for the orders with multiple items, I utilized the calculation below to make 
+												sure that the values were the same.</p>
+											<pre><code>#########Make sure total value and payment value match#########
+select order_id, count(*), sum(total_value)*count(*), sum(payment_value)
+from calculated_total_value
+where total_value != payment_value
+group by order_id
+having count(order_id) > 1;
+</code></pre>
+									<h4>Creating Calculated Table</h4>
+									</header>
+											<p>In order to get a complete total cost for a given order, I needed to add the freight value and the price of the product. Additionally, I wanted to have all 
+												the relevant product information in one table. To accomplish this, I created a new view..</p>
+											<pre><code>create view complete_calculated_total_value as
+SELECT order_id, order_item_id, calculated_total_value.product_id, seller_id, shipping_limit_date, price, 
+freight_value, total_value, payment_value, broad_category, product_category_name_english, product_category_name
+FROM olist_data.calculated_total_value
+LEFT JOIN product_translations
+ON calculated_total_value.product_id = product_translations.product_id;
+</code></pre>
+										<h4>Add State Names</h4>
+										</header>
+												<p>The original data set only provided abbreviations for the state names. In order to show state names on the final dashboard, I edited the geolocation 
+													CSV in <b>Excel</b>. I created a new State column and added the corresponding state names alongside the abbreviations.</p>
+									<hr />
+									<h2>Dashboard Building</h2>
+									<h4>Incomplete Data for 2016 & 2018</h4>
+									<p>Although the original data set included data from 2016 - 2018, I decided to only include sales data for 2017. This is because, 
+										when first visualizing sales and orders over time, I noticed there was a significant decrease in sales from September to December 
+										compared to the rest of the year. When looking at each year individually, I found that for 2016, there were some sales in September, 
+										October, and December. For 2018, sales data was given for January to September, with a sharp decline in September sales. Only 2017 
+										had a complete year's sales reported. Therefore, I only included 2017 in the final dashboard to clearly indicate an accurate representation 
+										of sales for Olist over the course of a year.</p>
+										<i><sub>2016-2018 data</sub></i>
+										<div class="col-6"><span class="image fit"><img src="images/Olist 2016-2018 Sales Over Time.png" alt="" /></span></div>
+										<i><sub>2017 data only</sub></i>
+										<div class="col-6"><span class="image fit"><img src="images/Olist 2017 Sales Over Time.png" alt="" /></span></div>
+										<p></p>
+									<h4>Best Sellers Categories</h4>
+									<p>In order to have the correct name appear for Best Selling Category and Best Selling State, I create a calculated field named Rank by Sales: 
+										<code>Rank(SUM([Total Value]))</code>. I then applied the calculation as a filter and set it to only show one value. This allowed for only 
+										the name of the Best Selling Category and Best Selling State to be shown on the dashboard. </p>
+									</section>
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/margarett-w/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/marwaller/Maggie-Waller-Portfolio" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>Contact me at </li><li>maggiekwaller@gmail.com</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
