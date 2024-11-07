@@ -121,7 +121,6 @@ excl_merged.to_excel('2014-2023 MHS Data.xlsx', index=False)
 											excluded from the final data set. </p>
 										<pre><code>df = df.drop(columns = ["WEIGHT", "WGTADJ","FOUNDATION", "SECURED", "JSTATUS", "JPRICE", "JSQFT", "JBEDROOM", 
 "JTITLED", "JLOCATION", "JFOUNDATION", "JSECURED"])
-df
 </code></pre>
 											<h4>Input Values from Key</h4>
 									</header>
@@ -137,7 +136,6 @@ df1 = df1.astype({"SHIPMONTH": str})
 #create columns for Year and Month
 df1["Year"] = df1["SHIPMONTH"].str.slice(stop = 4)
 df1["Month"] = df1["SHIPMONTH"].str.slice(start = 4)
-df1
 												</code></pre>
 										<h4>Calculate Percentage of Blanks per Year</h4>
 									</header>
