@@ -93,7 +93,7 @@
 									</header>
 										<p>There was a separate <b>Excel</b> file for each year. The majority of files had the column headers in a different 
 											order and, beginning in 2021, additional columns were added. To prepare the files to be merged into a single 
-											file, the columns were given consistent naming and additional columns, that were not deemed necessary for analysis, 
+											file, the columns were given consistent naming. Additional columns that were not deemed necessary for analysis 
 											were removed. </p>
 										<h4>Compile all Excel files into one</h4>
 									<pre><code>#merge all excel files into one file
@@ -121,6 +121,7 @@ excl_merged.to_excel('2014-2023 MHS Data.xlsx', index=False)
 											excluded from the final data set. </p>
 										<pre><code>df = df.drop(columns = ["WEIGHT", "WGTADJ","FOUNDATION", "SECURED", "JSTATUS", "JPRICE", "JSQFT", "JBEDROOM", 
 "JTITLED", "JLOCATION", "JFOUNDATION", "JSECURED"])
+df
 </code></pre>
 											<h4>Input Values from Key</h4>
 									</header>
@@ -136,7 +137,8 @@ df1 = df1.astype({"SHIPMONTH": str})
 #create columns for Year and Month
 df1["Year"] = df1["SHIPMONTH"].str.slice(stop = 4)
 df1["Month"] = df1["SHIPMONTH"].str.slice(start = 4)
-</code></pre>
+df1
+												</code></pre>
 										<h4>Calculate Percentage of Blanks per Year</h4>
 									</header>
 									<section>
