@@ -53,7 +53,7 @@
 										<p></p>
 										<div class="col-6"><span class="image fit"><img src="images/Stroke Mortality Rates State.png" alt="" /></span></div>
 										<p></p>
-									<iframe title="Stroke Mortality Rates Final" width="1140" height="541.25" src="https://app.fabric.microsoft.com/reportEmbed?reportId=b1f4b906-d1ca-4cc8-a53b-1e43668fe522&autoAuth=true&ctid=7af93316-ba13-4d54-aa63-d6b5bac820d1" frameborder="0" allowFullScreen="true"></iframe>
+									<iframe title="Stroke Mortality Rates Final" width="100%" height="600" src="https://app.powerbi.com/reportEmbed?reportId=00cac699-3851-4e82-93b2-20c0bf0b2f16&autoAuth=true&ctid=cfa792cf-7768-4341-8857-81754c2afa1f" frameborder="0" allowFullScreen="true"></iframe>
 									<hr />
 									<h2>Tools Used</h2>
 									<ul>
@@ -159,8 +159,8 @@ def clean_data(df_clean):
 	df_clean = df_clean.astype({'GeoLevelCode': 'int'})
 	return df_clean
 												
-df_cleaner = clean_data(df_clean.copy())
-df_cleaner.head()
+df_clean = clean_data(df_clean.copy())
+df_clean.head()
 </code></pre>
 									<h4>Outliers</h4>
 									</header>
@@ -168,7 +168,7 @@ df_cleaner.head()
 											present at the county level in specific populations. The numbers were drastically higher due to the 
 											population levels being so small but still being averaged at the “per 100,000 population” level. 
 											The mortality rates were determined to be an accurate representation and remained in the final data set.</p>
-										<pre><code>df_cleaner.boxplot("Data_Value")
+										<pre><code>df_clean.boxplot("Data_Value")
 </code></pre>
 <div class="col-6"><span class="image"><img src="images/Stroke Box Plot.png" alt="" /></span></div>
 <hr />
@@ -186,10 +186,10 @@ df_cleaner.head()
 										<div class="col-4"><span class="image fit"><img src="images/Stroke Card Example.png" alt="" /></span></div>
 										<div class="col-4"><span class="image fit"><img src="images/Stroke Card California.png" alt="" /></span></div>
 									<p>A unique challenge presented by the State/County Level dashboard was preventing the aggregation of rates before the user had the opportunity 
-										to select a state they wanted to view. Because <b>PowerBI</b> does not currently have a native slicer that forces a selection, I used a Chiclet Slicer. 
-										However, Chiclet Slicers are only available in tile format, which was not an ideal way to select 1 of 50 different states. In order to force the 
-										selection, I hid the Chiclet slicer behind one of the other dashboard elements and only allowed interactions between it and the dropdown State slicer. 
-										This allows for forced selection while still utilizing the native dropdown slicer as seen below.</p>
+										to select a state they wanted to view. Because <b>PowerBI</b> did not have a native slicer that forces a selection when I created the dashboard, 
+										I used a Chiclet Slicer. However, Chiclet Slicers are only available in tile format, which was not an ideal way to select 1 of 50 different states. 
+										In order to force the selection, I hid the Chiclet slicer behind one of the other dashboard elements and disallowed interactions between it and 
+										the dropdown State slicer. This allows for forced selection while still utilizing the native dropdown slicer as seen below.</p>
 										<div class="col-4"><span class="image fit"><img src="images/Stroke No Selection.png" alt="" /></span></div>
 									</div>
 									</section>
